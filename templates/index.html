@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Language Translator</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌍 Language Translator</h1>
+
+<textarea
+id="text"
+placeholder="Enter text here..."></textarea>
+
+<div class="row">
+
+<select id="source">
+
+{% for name, code in languages.items() %}
+
+<option value="{{ code }}">
+{{ name.title() }}
+</option>
+
+{% endfor %}
+
+</select>
+
+<select id="target">
+
+{% for name, code in languages.items() %}
+
+<option value="{{ code }}"
+{% if code=="ur" %}
+selected
+{% endif %}
+>
+
+{{ name.title() }}
+
+</option>
+
+{% endfor %}
+
+</select>
+
+</div>
+
+<button onclick="translateText()">
+
+Translate
+
+</button>
+
+<h2>Translated Text</h2>
+
+<div id="result">
+
+Translation will appear here...
+
+</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
