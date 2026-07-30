@@ -1,76 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Language Translator</title>
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-<h1>🌍 Language Translator</h1>
+        <h1><i class="fa-solid fa-language"></i> Language Translator</h1>
 
-<textarea
-id="text"
-placeholder="Enter text here..."></textarea>
+        <p class="subtitle">
+            Translate text between multiple languages instantly.
+        </p>
 
-<div class="row">
+        <textarea id="text"
+            placeholder="Type your text here..."></textarea>
 
-<select id="source">
+        <div class="controls">
 
-{% for name, code in languages.items() %}
+            <select id="source">
 
-<option value="{{ code }}">
-{{ name.title() }}
-</option>
+                {% for name, code in languages.items() %}
 
-{% endfor %}
+                <option value="{{ code }}">
+                    {{ name.title() }}
+                </option>
 
-</select>
+                {% endfor %}
 
-<select id="target">
+            </select>
 
-{% for name, code in languages.items() %}
+            <button id="swapBtn" title="Swap Languages">
+                <i class="fa-solid fa-right-left"></i>
+            </button>
 
-<option value="{{ code }}"
-{% if code=="ur" %}
-selected
-{% endif %}
->
+            <select id="target">
 
-{{ name.title() }}
+                {% for name, code in languages.items() %}
 
-</option>
+                <option value="{{ code }}"
+                    {% if code=="ur" %}selected{% endif %}>
+                    {{ name.title() }}
+                </option>
 
-{% endfor %}
+                {% endfor %}
 
-</select>
+            </select>
 
-</div>
+        </div>
 
-<button onclick="translateText()">
+        <button class="translate-btn" onclick="translateText()">
+            <i class="fa-solid fa-language"></i>
+            Translate
+        </button>
 
-Translate
+        <div class="output">
 
-</button>
+            <h2>Translated Text</h2>
 
-<h2>Translated Text</h2>
+            <div id="result">
+                Your translation will appear here...
+            </div>
 
-<div id="result">
+        </div>
 
-Translation will appear here...
+    </div>
 
-</div>
-
-</div>
-
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 
