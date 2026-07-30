@@ -30,18 +30,22 @@
             placeholder="Type your text here..."></textarea>
 
         <div class="controls">
+<select id="source">
 
-            <select id="source">
+    {% for name, code in languages.items() %}
 
-                {% for name, code in languages.items() %}
+    <option
+        value="{{ code }}"
+        {% if code == "auto" %}
+        selected
+        {% endif %}
+    >
+        {{ name }}
+    </option>
 
-                <option value="{{ code }}">
-                    {{ name.title() }}
-                </option>
+    {% endfor %}
 
-                {% endfor %}
-
-            </select>
+</select>
 
             <button id="swapBtn" title="Swap Languages">
                 <i class="fa-solid fa-right-left"></i>
