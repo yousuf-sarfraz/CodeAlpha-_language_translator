@@ -1,27 +1,90 @@
-async function translateText(){
+const text=document.getElementById("text");
+const result=document.getElementById("result");
 
-let text=document.getElementById("text").value;
+// Character Counter
+text.addEventListener("input",()=>{
 
-let source=document.getElementById("source").value;
-
-let target=document.getElementById("target").value;
-
-let formData=new FormData();
-
-formData.append("text",text);
-formData.append("source",source);
-formData.append("target",target);
-
-let response=await fetch("/translate",{
-
-method:"POST",
-
-body:formData
+    document.getElementById("count").innerHTML=text.value.length;
 
 });
 
-let data=await response.json();
+// Translate
+async function translateText(){
 
-document.getElementById("result").innerHTML=data.translated;
+    if(text.value.trim()==""){
+
+        alert("Please enter text.");
+
+        return;
+
+    }
+
+    result.innerHTML="⏳ Translating...";
+
+    const formData=new FormData();
+
+    formData.append("text",text.value);
+    formData.append("source",source.value);
+    formData.append("target",target.value);
+
+    try{
+
+        const response=await fetch("/translate",{
+
+            method:"POST",
+
+            body:formData
+
+        });
+
+        const data=await response.json();
+
+        result.innerHTML=data.translated;
+
+    }
+
+    catch{
+
+        result.innerHTML="Translation Failed.";
+
+    }
+
+}
+
+// Swap Languages
+swapBtn.onclick=()=>{
+
+    let temp=source.value;
+
+    source.value=target.value;
+
+    target.value=temp;
+
+}
+
+// Copy
+copyBtn.onclick=()=>{
+
+    navigator.clipboard.writeText(result.innerText);
+
+    alert("Copied Successfully!");
+
+}
+
+// Clear
+clearBtn.onclick=()=>{
+
+    text.value="";
+
+    result.innerHTML="";
+
+    count.innerHTML=0;
+
+}
+
+// Dark Mode
+themeBtn.onclick=()=>{
+
+    document.body.classList.toggle("dark-mode");
 
 }
