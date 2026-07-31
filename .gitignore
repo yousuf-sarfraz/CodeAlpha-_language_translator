@@ -1,38 +1,67 @@
+# ==========================
 # Virtual Environment
+# ==========================
 venv/
+.venv/
+env/
+
+# ==========================
+# Environment Variables
+# ==========================
 .env
 
-# Python cache
+# ==========================
+# Python Cache
+# ==========================
 __pycache__/
 *.py[cod]
 *$py.class
 
+# ==========================
 # Flask
+# ==========================
 instance/
 .webassets-cache
 
-# VS Code
+# ==========================
+# IDEs
+# ==========================
 .vscode/
-
-# PyCharm
 .idea/
 
-# Environment variables
-.env
-
+# ==========================
 # Logs
+# ==========================
 *.log
 
-# OS files
-.DS_Store
-Thumbs.db
-
-# Build files
+# ==========================
+# Build Files
+# ==========================
 build/
 dist/
 *.egg-info/
+pip-wheel-metadata/
 
-# Test cache
+# ==========================
+# Test & Coverage
+# ==========================
 .pytest_cache/
 .coverage
 htmlcov/
+
+# ==========================
+# Operating System Files
+# ==========================
+.DS_Store
+Thumbs.db
+
+# ==========================
+# Jupyter Notebook
+# ==========================
+.ipynb_checkpoints/
+
+# ==========================
+# Translation History (Optional)
+# Uncomment if you don't want to upload it
+# ==========================
+# history/history.json

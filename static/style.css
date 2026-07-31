@@ -1,3 +1,13 @@
+/* ==========================================
+   GOOGLE FONT
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================
+   RESET
+========================================== */
+
 *{
     margin:0;
     padding:0;
@@ -5,136 +15,967 @@
     font-family:'Poppins',sans-serif;
 }
 
+/* ==========================================
+   BODY
+========================================== */
+
 body{
+
     min-height:100vh;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
-    background:linear-gradient(135deg,#4facfe,#00f2fe);
+
     padding:30px;
+
+    background:linear-gradient(135deg,#4facfe,#00c6ff);
+
+    transition:.4s;
+
 }
+
+/* ==========================================
+   CONTAINER
+========================================== */
 
 .container{
+
     width:100%;
-    max-width:800px;
-    background:rgba(255,255,255,0.18);
-    backdrop-filter:blur(15px);
-    border-radius:20px;
+
+    max-width:900px;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:25px;
+
     padding:35px;
-    box-shadow:0 8px 30px rgba(0,0,0,.2);
+
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
+
 }
 
-h1{
-    text-align:center;
+/* ==========================================
+   HEADER
+========================================== */
+
+header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:15px;
+
+}
+
+header h1{
+
     color:#fff;
-    font-size:38px;
-    margin-bottom:10px;
+
+    font-size:36px;
+
+    font-weight:700;
+
 }
 
 .subtitle{
-    text-align:center;
-    color:#f5f5f5;
+
+    color:white;
+
     margin-bottom:25px;
+
+    opacity:.9;
+
+}
+
+/* ==========================================
+   THEME BUTTON
+========================================== */
+
+#themeBtn{
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    transition:.3s;
+
+}
+
+#themeBtn:hover{
+
+    transform:rotate(180deg);
+
+}
+
+/* ==========================================
+   INPUT SECTION
+========================================== */
+
+.input-section{
+
+    margin-bottom:25px;
+
 }
 
 textarea{
+
     width:100%;
+
     height:180px;
-    resize:none;
+
     border:none;
+
     outline:none;
-    border-radius:15px;
+
+    resize:none;
+
     padding:18px;
+
+    border-radius:18px;
+
     font-size:17px;
-    margin-bottom:20px;
+
+    background:white;
+
+    color:#333;
+
 }
 
-.controls{
+textarea::placeholder{
+
+    color:#888;
+
+}
+
+/* ==========================================
+   INPUT FOOTER
+========================================== */
+
+.input-footer{
+
+    margin-top:12px;
+
     display:flex;
-    gap:15px;
+
+    justify-content:space-between;
+
     align-items:center;
-    margin-bottom:25px;
+
 }
 
-select{
-    flex:1;
-    padding:12px;
+.input-footer span{
+
+    color:white;
+
+    font-size:15px;
+
+}
+
+/* ==========================================
+   MICROPHONE
+========================================== */
+
+#micBtn{
+
+    width:50px;
+
+    height:50px;
+
     border:none;
-    border-radius:12px;
-    font-size:16px;
+
+    border-radius:50%;
+
+    background:#e53935;
+
+    color:white;
+
     cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+#micBtn:hover{
+
+    background:#c62828;
+
+    transform:scale(1.08);
+
+}
+
+/* ==========================================
+   LANGUAGE SECTION
+========================================== */
+
+.language-section{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin:25px 0;
+
+}
+
+.language-section select{
+
+    flex:1;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    outline:none;
+
 }
 
 #swapBtn{
+
     width:55px;
+
     height:55px;
+
     border:none;
+
     border-radius:50%;
-    background:#ffffff;
+
+    background:white;
+
     color:#2196F3;
+
     cursor:pointer;
+
     font-size:20px;
-    transition:.3s;
+
+    transition:.4s;
+
 }
 
 #swapBtn:hover{
+
     transform:rotate(180deg);
+
     background:#2196F3;
+
     color:white;
+
 }
 
+/* ==========================================
+   TRANSLATE BUTTON
+========================================== */
+
 .translate-btn{
+
     width:100%;
+
     padding:16px;
+
     border:none;
+
     border-radius:15px;
+
     background:#1565C0;
+
     color:white;
+
     font-size:18px;
+
+    font-weight:600;
+
     cursor:pointer;
+
     transition:.3s;
+
 }
 
 .translate-btn:hover{
+
     background:#0D47A1;
+
     transform:translateY(-3px);
-}
 
-.output{
+}
+/* ==========================================
+   OUTPUT SECTION
+========================================== */
+
+.output-section{
+
     margin-top:30px;
+
+    background:rgba(255,255,255,.15);
+
+    border-radius:20px;
+
+    padding:25px;
+
 }
 
-.output h2{
-    color:white;
-    margin-bottom:12px;
+.output-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
 }
+
+.output-header h2{
+
+    color:white;
+
+    font-size:24px;
+
+}
+
+.output-tools{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.output-tools button{
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    color:white;
+
+    transition:.3s;
+
+}
+
+/* Copy */
+
+#copyBtn{
+
+    background:#2196F3;
+
+}
+
+#copyBtn:hover{
+
+    background:#1976D2;
+
+    transform:translateY(-3px);
+
+}
+
+/* Listen */
+
+#speakBtn{
+
+    background:#43A047;
+
+}
+
+#speakBtn:hover{
+
+    background:#2E7D32;
+
+    transform:translateY(-3px);
+
+}
+
+/* Download */
+
+#downloadBtn{
+
+    background:#FF9800;
+
+}
+
+#downloadBtn:hover{
+
+    background:#F57C00;
+
+    transform:translateY(-3px);
+
+}
+
+/* Favorite */
+
+#favoriteBtn{
+
+    background:#E91E63;
+
+}
+
+#favoriteBtn:hover{
+
+    background:#C2185B;
+
+    transform:translateY(-3px);
+
+}
+
+/* ==========================================
+   RESULT BOX
+========================================== */
 
 #result{
-    min-height:130px;
+
+    min-height:150px;
+
     background:white;
+
     border-radius:15px;
+
     padding:20px;
+
     font-size:18px;
-    line-height:1.6;
+
+    color:#333;
+
+    line-height:1.8;
+
     word-wrap:break-word;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+/* ==========================================
+   HISTORY SECTION
+========================================== */
+
+.history-section{
+
+    margin-top:35px;
+
+    background:rgba(255,255,255,.12);
+
+    border-radius:20px;
+
+    padding:20px;
+
+}
+
+.history-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.history-header h2{
+
+    color:white;
+
+    font-size:22px;
+
+}
+
+#clearHistory{
+
+    border:none;
+
+    background:#F44336;
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#clearHistory:hover{
+
+    background:#D32F2F;
+
+}
+
+#historyList{
+
+    list-style:none;
+
+    max-height:220px;
+
+    overflow-y:auto;
+
+}
+
+#historyList li{
+
+    background:white;
+
+    padding:14px;
+
+    margin-bottom:12px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#historyList li:hover{
+
+    transform:translateX(5px);
+
+    background:#F5F5F5;
+
+}
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.loading{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:30px 0;
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+
+.spinner{
+
+    width:50px;
+
+    height:50px;
+
+    border:5px solid rgba(255,255,255,.4);
+
+    border-top:5px solid white;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+
+    margin-bottom:15px;
+
+}
+
+.loading p{
+
+    color:white;
+
+    font-size:18px;
+
+}
+
+/* ==========================================
+   TOAST
+========================================== */
+
+#toast{
+
+    position:fixed;
+
+    bottom:30px;
+
+    right:30px;
+
+    background:#323232;
+
+    color:white;
+
+    padding:15px 25px;
+
+    border-radius:12px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.4s;
+
+    z-index:1000;
+
+}
+
+#toast.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+/* ==========================================
+   ANIMATION
+========================================== */
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+/* ==========================================
+   DARK MODE
+========================================== */
+
+body.dark-mode{
+
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+
+}
+
+body.dark-mode .container{
+
+    background:rgba(15,23,42,.85);
+
+    backdrop-filter:blur(20px);
+
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode .subtitle,
+body.dark-mode .input-footer span{
+
+    color:#ffffff;
+
+}
+
+body.dark-mode textarea{
+
+    background:#1e293b;
+
+    color:#ffffff;
+
+}
+
+body.dark-mode textarea::placeholder{
+
+    color:#cbd5e1;
+
+}
+
+body.dark-mode select{
+
+    background:#1e293b;
+
+    color:#ffffff;
+
+}
+
+body.dark-mode #result{
+
+    background:#1e293b;
+
+    color:#ffffff;
+
+}
+
+body.dark-mode #historyList li{
+
+    background:#1e293b;
+
+    color:#ffffff;
+
+}
+
+body.dark-mode #historyList li:hover{
+
+    background:#334155;
+
+}
+
+body.dark-mode #themeBtn{
+
+    background:#334155;
+
+    color:#ffffff;
+
+}
+
+/* ==========================================
+   BUTTON ANIMATION
+========================================== */
+
+button{
+
+    transition:.3s ease;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+textarea::-webkit-scrollbar,
+#historyList::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+textarea::-webkit-scrollbar-track,
+#historyList::-webkit-scrollbar-track{
+
+    background:#f1f1f1;
+
+    border-radius:10px;
+
+}
+
+textarea::-webkit-scrollbar-thumb,
+#historyList::-webkit-scrollbar-thumb{
+
+    background:#2196F3;
+
+    border-radius:10px;
+
+}
+
+textarea::-webkit-scrollbar-thumb:hover,
+#historyList::-webkit-scrollbar-thumb:hover{
+
+    background:#1565C0;
+
+}
+
+/* ==========================================
+   FADE ANIMATION
+========================================== */
+
+.container{
+
+    animation:fadeIn .7s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media(max-width:900px){
+
+    .container{
+
+        padding:25px;
+
+    }
+
 }
 
 @media(max-width:768px){
 
-.controls{
-    flex-direction:column;
+    header{
+
+        flex-direction:column;
+
+        gap:15px;
+
+        text-align:center;
+
+    }
+
+    .language-section{
+
+        flex-direction:column;
+
+    }
+
+    #swapBtn{
+
+        transform:rotate(90deg);
+
+    }
+
+    .output-header{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        align-items:flex-start;
+
+    }
+
+    .output-tools{
+
+        width:100%;
+
+        justify-content:space-between;
+
+    }
+
+    .history-header{
+
+        flex-direction:column;
+
+        gap:15px;
+
+    }
+
+    h1{
+
+        font-size:30px;
+
+    }
+
 }
 
-#swapBtn{
-    transform:rotate(90deg);
+@media(max-width:500px){
+
+    body{
+
+        padding:15px;
+
+    }
+
+    .container{
+
+        padding:20px;
+
+    }
+
+    textarea{
+
+        height:150px;
+
+        font-size:15px;
+
+    }
+
+    .translate-btn{
+
+        font-size:16px;
+
+        padding:14px;
+
+    }
+
+    .output-tools button{
+
+        width:40px;
+
+        height:40px;
+
+        font-size:15px;
+
+    }
+
+    #micBtn{
+
+        width:45px;
+
+        height:45px;
+
+    }
+
 }
 
-h1{
-    font-size:30px;
+/* ==========================================
+   GLASS HOVER EFFECT
+========================================== */
+
+.container:hover{
+
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+
 }
 
-.container{
-    padding:25px;
-}
-
-}
+/* ==========================================
+   END OF FILE
+========================================== */

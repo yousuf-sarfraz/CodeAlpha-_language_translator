@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Language Translator</title>
+    <title>Language Translator Pro</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -20,68 +23,229 @@
 
     <div class="container">
 
-        <h1><i class="fa-solid fa-language"></i> Language Translator</h1>
+        <!-- ================= HEADER ================= -->
 
-        <p class="subtitle">
-            Translate text between multiple languages instantly.
-        </p>
+        <header>
 
-        <textarea id="text"
-            placeholder="Type your text here..."></textarea>
+            <h1>
+                <i class="fa-solid fa-language"></i>
+                Language Translator
+            </h1>
 
-        <div class="controls">
-<select id="source">
-
-    {% for name, code in languages.items() %}
-
-    <option
-        value="{{ code }}"
-        {% if code == "auto" %}
-        selected
-        {% endif %}
-    >
-        {{ name }}
-    </option>
-
-    {% endfor %}
-
-</select>
-
-            <button id="swapBtn" title="Swap Languages">
-                <i class="fa-solid fa-right-left"></i>
+            <button id="themeBtn" title="Toggle Theme">
+                <i class="fa-solid fa-moon"></i>
             </button>
 
-            <select id="target">
+        </header>
+
+        <p class="subtitle">
+            Translate text instantly into more than 100 languages.
+        </p>
+
+        <!-- ================= INPUT ================= -->
+
+        <section class="input-section">
+
+            <textarea
+                id="text"
+                placeholder="Type or speak something..."></textarea>
+
+            <div class="input-footer">
+
+                <span>
+
+                    Characters:
+                    <span id="count">0</span>
+
+                </span>
+
+                <button
+                    id="micBtn"
+                    title="Speak">
+
+                    <i class="fa-solid fa-microphone"></i>
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- ================= LANGUAGE ================= -->
+
+        <section class="language-section">
+
+            <select id="source">
 
                 {% for name, code in languages.items() %}
 
-                <option value="{{ code }}"
-                    {% if code=="ur" %}selected{% endif %}>
-                    {{ name.title() }}
+                <option
+                    value="{{ code }}"
+                    {% if code=="auto" %}
+                    selected
+                    {% endif %}>
+
+                    {{ name }}
+
                 </option>
 
                 {% endfor %}
 
             </select>
 
-        </div>
+            <button
+                id="swapBtn"
+                title="Swap">
 
-        <button class="translate-btn" onclick="translateText()">
+                <i class="fa-solid fa-right-left"></i>
+
+            </button>
+
+            <select id="target">
+
+                {% for name, code in languages.items() %}
+
+                <option
+                    value="{{ code }}"
+                    {% if code=="ur" %}
+                    selected
+                    {% endif %}>
+
+                    {{ name.title() }}
+
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+        </section>
+
+        <!-- ================= TRANSLATE ================= -->
+
+        <button
+            class="translate-btn"
+            onclick="translateText()">
+
             <i class="fa-solid fa-language"></i>
+
             Translate
+
         </button>
 
-        <div class="output">
+        <!-- ================= LOADING ================= -->
 
-            <h2>Translated Text</h2>
+        <div
+            id="loading"
+            class="loading hidden">
 
-            <div id="result">
-                Your translation will appear here...
-            </div>
+            <div class="spinner"></div>
+
+            <p>Translating...</p>
 
         </div>
 
+        <!-- ================= OUTPUT ================= -->
+
+        <section class="output-section">
+
+            <div class="output-header">
+
+                <h2>
+
+                    <i class="fa-solid fa-globe"></i>
+
+                    Translation
+
+                </h2>
+
+                <div class="output-tools">
+
+                    <button
+                        id="copyBtn"
+                        title="Copy">
+
+                        <i class="fa-solid fa-copy"></i>
+
+                    </button>
+
+                    <button
+                        id="speakBtn"
+                        title="Listen">
+
+                        <i class="fa-solid fa-volume-high"></i>
+
+                    </button>
+
+                    <button
+                        id="downloadBtn"
+                        title="Download">
+
+                        <i class="fa-solid fa-download"></i>
+
+                    </button>
+
+                    <button
+                        id="favoriteBtn"
+                        title="Favorite">
+
+                        <i class="fa-regular fa-star"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div id="result">
+
+                Your translated text will appear here...
+
+            </div>
+
+        </section>
+
+        <!-- ================= HISTORY ================= -->
+
+        <section class="history-section">
+
+            <div class="history-header">
+
+                <h2>
+
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+
+                    Recent History
+
+                </h2>
+
+                <button id="clearHistory">
+
+                    Clear
+
+                </button>
+
+            </div>
+
+            <ul id="historyList">
+
+                <li>No translations yet.</li>
+
+            </ul>
+
+        </section>
+
     </div>
+
+    <!-- ================= TOAST ================= -->
+
+    <div id="toast">
+
+        Success
+
+    </div>
+
+    <!-- ================= SCRIPT ================= -->
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 
