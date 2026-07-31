@@ -79,7 +79,3 @@ Language-Translator-Pro/
 **Yousuf Sarfraz**
 
 Computer Science Student
-
-
-
-Feel free to use, modify, and improve it for learning and educational purposes.
